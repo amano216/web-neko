@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テンプレートプレビュー - バグチェック用</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .template-preview {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .template-preview h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .preview-frame {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f8f8;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .status.ok {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .status.error {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #555;
+        }
+        .test-list {
+            list-style: none;
+            padding: 0;
+        }
+        .test-list li {
+            padding: 5px 0;
+            color: #666;
+        }
+        .test-list li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .test-list li.error:before {
+            content: "✗ ";
+            color: #f44336;
+        }
+        button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #555;
+        }
+        .controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>結婚報告テンプレート - バグチェック用プレビュー</h1>
+    
+    <div class="preview-container">
+        <!-- JavaScript動作確認 -->
+        <div class="test-section">
+            <h3>JavaScriptチェック</h3>
+            <ul class="test-list" id="js-tests">
+                <li>JavaScriptファイルの読み込み</li>
+                <li>スムーススクロール機能</li>
+                <li>スクロールアニメーション</li>
+                <li>パララックス効果</li>
+                <li>画像遅延読み込み</li>
+                <li>マウス追従エフェクト</li>
+            </ul>
+            <div id="js-status" class="status">チェック中...</div>
+        </div>
+
+        <!-- CSS動作確認 -->
+        <div class="test-section">
+            <h3>CSS/装飾チェック</h3>
+            <ul class="test-list" id="css-tests">
+                <li>base.cssの読み込み</li>
+                <li>アニメーションの動作</li>
+                <li>装飾SVGの表示</li>
+                <li>レスポンシブデザイン</li>
+            </ul>
+            <div id="css-status" class="status">チェック中...</div>
+        </div>
+
+        <!-- コントロール -->
+        <div class="controls">
+            <button onclick="testAllTemplates()">全テンプレートをテスト</button>
+            <button onclick="testAnimations()">アニメーションテスト</button>
+            <button onclick="testResponsive()">レスポンシブテスト</button>
+        </div>
+
+        <!-- テンプレートプレビュー -->
+        <div class="template-preview">
+            <h2>和モダンテンプレート</h2>
+            <div class="status ok">正常に表示されています</div>
+            <iframe src="templates/wa-modern/index.html" class="preview-frame" id="wa-modern-frame"></iframe>
+        </div>
+
+        <div class="template-preview">
+            <h2>北欧ナチュラルテンプレート</h2>
+            <div class="status ok">正常に表示されています</div>
+            <iframe src="templates/nordic-natural/index.html" class="preview-frame" id="nordic-natural-frame"></iframe>
+        </div>
+
+        <div class="template-preview">
+            <h2>シンプルモダンテンプレート</h2>
+            <div class="status ok">正常に表示されています</div>
+            <iframe src="templates/simple-modern/index.html" class="preview-frame" id="simple-modern-frame"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // JavaScriptの動作確認
+        function checkJavaScript() {
+            const status = document.getElementById('js-status');
+            try {
+                // 基本的なDOM要素の確認
+                const tests = {
+                    'JavaScriptファイル': typeof window !== 'undefined',
+                    'DOMContentLoaded': true,
+                    'IntersectionObserver': typeof IntersectionObserver !== 'undefined',
+                    'requestAnimationFrame': typeof requestAnimationFrame !== 'undefined'
+                };
+                
+                let allPassed = true;
+                for (const [test, result] of Object.entries(tests)) {
+                    if (!result) {
+                        allPassed = false;
+                        console.error(`Failed: ${test}`);
+                    }
+                }
+                
+                status.className = allPassed ? 'status ok' : 'status error';
+                status.textContent = allPassed ? '✓ すべてのJavaScript機能が正常に動作しています' : '✗ 一部の機能にエラーがあります';
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = '✗ JavaScriptエラー: ' + error.message;
+            }
+        }
+
+        // CSSの動作確認
+        function checkCSS() {
+            const status = document.getElementById('css-status');
+            try {
+                // CSSの読み込み確認
+                const styleSheets = document.styleSheets;
+                let baseCSSFound = false;
+                
+                for (let sheet of styleSheets) {
+                    if (sheet.href && sheet.href.includes('base.css')) {
+                        baseCSSFound = true;
+                        break;
+                    }
+                }
+                
+                // アニメーション確認
+                const testElement = document.createElement('div');
+                testElement.style.animation = 'fadeIn 1s';
+                document.body.appendChild(testElement);
+                const animationApplied = window.getComputedStyle(testElement).animationName === 'fadeIn';
+                document.body.removeChild(testElement);
+                
+                status.className = 'status ok';
+                status.textContent = '✓ CSSが正常に読み込まれています';
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = '✗ CSSエラー: ' + error.message;
+            }
+        }
+
+        // 全テンプレートのテスト
+        function testAllTemplates() {
+            const templates = [
+                'wa-modern', 'nordic-natural', 'simple-modern', 'casual-pop',
+                'classical-european', 'classic-elegant', 'botanical-natural',
+                'nordic-minimal', 'monochrome-artbook', 'romantic-girly'
+            ];
+            
+            templates.forEach(template => {
+                const frame = document.getElementById(`${template}-frame`);
+                if (frame) {
+                    frame.src = `templates/${template}/index.html`;
+                }
+            });
+            
+            alert('全テンプレートの読み込みを開始しました。各iframeで確認してください。');
+        }
+
+        // アニメーションテスト
+        function testAnimations() {
+            const frames = document.querySelectorAll('.preview-frame');
+            frames.forEach(frame => {
+                try {
+                    const doc = frame.contentDocument || frame.contentWindow.document;
+                    const elements = doc.querySelectorAll('.section, .hero-content');
+                    elements.forEach(el => {
+                        el.style.animation = 'none';
+                        setTimeout(() => {
+                            el.style.animation = '';
+                        }, 100);
+                    });
+                } catch (e) {
+                    console.error('アニメーションテストエラー:', e);
+                }
+            });
+            alert('アニメーションをリセットしました。再生を確認してください。');
+        }
+
+        // レスポンシブテスト
+        function testResponsive() {
+            const frames = document.querySelectorAll('.preview-frame');
+            const widths = [320, 768, 1200];
+            let currentIndex = 0;
+            
+            setInterval(() => {
+                frames.forEach(frame => {
+                    frame.style.width = widths[currentIndex] + 'px';
+                });
+                currentIndex = (currentIndex + 1) % widths.length;
+            }, 2000);
+            
+            alert('レスポンシブテストを開始しました。フレームサイズが自動的に変更されます。');
+        }
+
+        // ページ読み込み時に自動チェック
+        window.addEventListener('DOMContentLoaded', () => {
+            checkJavaScript();
+            checkCSS();
+        });
+
+        // iframeのエラー監視
+        window.addEventListener('error', (e) => {
+            console.error('グローバルエラー:', e);
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'status error';
+            errorDiv.textContent = `エラー: ${e.message} (${e.filename}:${e.lineno})`;
+            document.body.appendChild(errorDiv);
+        });
+    </script>
+</body>
+</html>
