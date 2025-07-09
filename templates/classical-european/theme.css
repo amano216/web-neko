@@ -1,0 +1,646 @@
+/* Classical European Theme - Ornate European style */
+
+:root {
+    --primary-color: #4B2C20;  /* Dark Bronze */
+    --secondary-color: #C9A961;  /* Antique Gold */
+    --accent-color: #FBF7F0;  /* Ivory */
+    --text-color: #3A2317;
+    --background-color: #FFFDF8;
+    --border-color: #E6D7C3;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to bottom, #FBF7F0 0%, #FFFDF8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 35px,
+        rgba(201, 169, 97, 0.03) 35px,
+        rgba(201, 169, 97, 0.03) 70px
+    );
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 80px 40px;
+    position: relative;
+    z-index: 1;
+    border: 2px solid var(--secondary-color);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content::before,
+.hero-content::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--secondary-color);
+}
+
+.hero-content::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.hero-content::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+.hero-title {
+    font-family: 'Cinzel', 'Bodoni MT', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 400;
+    color: var(--primary-color);
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title .and {
+    display: block;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 0.4em;
+    color: var(--secondary-color);
+    margin: 20px 0;
+    font-style: italic;
+    letter-spacing: 6px;
+}
+
+.wedding-date {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    letter-spacing: 5px;
+    margin: 30px 0;
+    font-weight: 400;
+}
+
+.hero-message {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+/* Section Styling */
+.section {
+    padding: 120px 0;
+    position: relative;
+}
+
+.section:nth-child(even) {
+    background: var(--accent-color);
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 80px;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '❦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.section-title::before {
+    left: -60px;
+}
+
+.section-title::after {
+    right: -60px;
+}
+
+/* Greeting Section */
+.greeting-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 80px 60px;
+    background: white;
+    border: 1px solid var(--border-color);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.greeting-content::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    border: 2px solid var(--secondary-color);
+    opacity: 0.3;
+}
+
+.greeting-content::after {
+    content: '✦';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+.greeting-content p {
+    font-size: 1.1rem;
+    line-height: 2.8;
+    color: var(--text-color);
+    margin: 25px 0;
+    font-weight: 300;
+}
+
+.greeting-content p:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+/* Profile Section */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--secondary-color);
+    padding: 8px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.profile-details {
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.profile-details dt {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.profile-details dd {
+    margin: 10px 0 0 0;
+    color: var(--text-color);
+    font-size: 1.05rem;
+    padding-left: 20px;
+    position: relative;
+}
+
+.profile-details dd::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        var(--secondary-color) 0%,
+        var(--secondary-color) 45%,
+        transparent 50%,
+        var(--secondary-color) 55%,
+        var(--secondary-color) 100%
+    );
+    background-size: 2px 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-date {
+    flex: 0 0 180px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+.timeline-content {
+    flex: 1;
+    padding: 40px;
+    margin: 0 50px;
+    background: white;
+    border: 1px solid var(--border-color);
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content::before {
+    content: '◆';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -60px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -60px;
+}
+
+.timeline-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Q&A Section */
+.qa-grid {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.qa-item {
+    margin-bottom: 80px;
+    padding: 50px;
+    background: white;
+    border: 1px solid var(--border-color);
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.qa-item::before,
+.qa-item::after {
+    content: '✦';
+    position: absolute;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.qa-item::before {
+    top: 20px;
+    left: 20px;
+}
+
+.qa-item::after {
+    bottom: 20px;
+    right: 20px;
+}
+
+.qa-question {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.qa-answers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+}
+
+.answer {
+    text-align: center;
+    padding: 30px;
+    background: var(--accent-color);
+    border: 1px solid var(--border-color);
+}
+
+.answer-label {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: 500;
+}
+
+.answer p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid var(--secondary-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item:hover::before {
+    opacity: 0.5;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Thanks Section */
+.thanks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.thanks-item {
+    text-align: center;
+    padding: 60px 40px;
+    background: white;
+    border: 1px solid var(--border-color);
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.thanks-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid var(--secondary-color);
+    opacity: 0.3;
+}
+
+.thanks-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.thanks-item p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Message Section */
+.message-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3A1F15 100%);
+    color: white;
+}
+
+.message-section .section-title {
+    color: white;
+}
+
+.message-section .section-title::before,
+.message-section .section-title::after {
+    color: var(--secondary-color);
+}
+
+.message-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    border: 3px double var(--secondary-color);
+    position: relative;
+}
+
+.message-content::before,
+.message-content::after {
+    content: '❦';
+    position: absolute;
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+.message-content::before {
+    top: 30px;
+    left: 30px;
+}
+
+.message-content::after {
+    bottom: 30px;
+    right: 30px;
+}
+
+.message-content p {
+    font-size: 1.15rem;
+    line-height: 2.5;
+    margin: 25px 0;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.couple-names {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin-top: 60px;
+    letter-spacing: 5px;
+}
+
+.couple-names .and {
+    font-family: 'Cinzel Decorative', cursive;
+    font-style: italic;
+    font-size: 0.6em;
+    margin: 0 20px;
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column !important;
+    }
+    
+    .timeline-content::before {
+        left: -45px !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+}

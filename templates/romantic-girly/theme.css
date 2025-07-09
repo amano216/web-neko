@@ -1,0 +1,624 @@
+/* Romantic Girly Theme - Soft, feminine, romantic design */
+
+:root {
+    --primary-color: #E91E63;  /* Pink */
+    --secondary-color: #F8BBD0;  /* Light Pink */
+    --accent-color: #FCE4EC;  /* Very Light Pink */
+    --text-color: #5D4037;
+    --background-color: #FFF5F7;
+    --rose-gold: #B76E79;
+}
+
+/* Hero Section */
+.hero-section {
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(248, 187, 208, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #FFF5F7 0%, #FCE4EC 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-section::before {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(233, 30, 99, 0.1) 0%, transparent 70%);
+}
+
+.hero-section::after {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -150px;
+    background: radial-gradient(circle, rgba(248, 187, 208, 0.1) 0%, transparent 70%);
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.hero-title .bride-name,
+.hero-title .groom-name {
+    display: inline-block;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hero-title .and {
+    font-size: 0.6em;
+    color: var(--rose-gold);
+    font-style: italic;
+    margin: 0 20px;
+    vertical-align: middle;
+}
+
+.wedding-date {
+    font-size: 1.3rem;
+    color: var(--rose-gold);
+    letter-spacing: 2px;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.hero-message {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+/* Section Styling */
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section::before {
+    content: '💕';
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 40px;
+    opacity: 0.1;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+}
+
+.section-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '♡';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.section-title::before {
+    left: -50px;
+}
+
+.section-title::after {
+    right: -50px;
+}
+
+/* Greeting Section */
+.greeting-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+    border: 2px solid var(--accent-color);
+    position: relative;
+}
+
+.greeting-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting-content::after {
+    content: '💌';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    z-index: 1;
+}
+
+.greeting-content p {
+    font-size: 1.1rem;
+    line-height: 2.2;
+    color: var(--text-color);
+    margin: 20px 0;
+}
+
+.greeting-content p:first-child {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Profile Section */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: white;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--accent-color) 30%, transparent 30%);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    transform: rotate(45deg);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--secondary-color);
+    padding: 5px;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-details {
+    text-align: left;
+    background: var(--background-color);
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-details dt {
+    font-size: 0.9rem;
+    color: var(--rose-gold);
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.profile-details dd {
+    margin: 8px 0 0 0;
+    color: var(--text-color);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 80px 0;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-date {
+    flex: 0 0 150px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-style: italic;
+}
+
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.1);
+    margin: 0 40px;
+    position: relative;
+    border: 2px solid var(--accent-color);
+}
+
+.timeline-content::before {
+    content: '💗';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -52px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -52px;
+}
+
+.timeline-content h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* Q&A Section */
+.qa-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.qa-item {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+}
+
+.qa-question {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 25px 40px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.qa-question::after {
+    content: '?';
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.qa-answers {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.answer {
+    position: relative;
+    padding: 25px;
+    background: var(--background-color);
+    border-radius: 15px;
+}
+
+.answer-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.answer p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px) rotate(-2deg);
+    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.2);
+}
+
+.gallery-item::after {
+    content: '♡';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Thanks Section */
+.thanks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.thanks-item {
+    background: white;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.thanks-item::before {
+    content: '💐';
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    opacity: 0.3;
+}
+
+.thanks-item h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 50px 0 20px;
+}
+
+.thanks-item p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* Message Section */
+.message-section {
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.message-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(248, 187, 208, 0.05) 0%, transparent 50%);
+}
+
+.message-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: white;
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(233, 30, 99, 0.1);
+    border: 3px solid var(--accent-color);
+}
+
+.message-content::before {
+    content: '💕';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    background: white;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.1);
+}
+
+.message-content p {
+    font-size: 1.3rem;
+    line-height: 2.4;
+    color: var(--text-color);
+    margin: 25px 0;
+    font-weight: 400;
+}
+
+.couple-names {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid var(--accent-color);
+    position: relative;
+}
+
+.couple-names::before {
+    content: '💑';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    background: white;
+    padding: 0 20px;
+}
+
+.couple-names .and {
+    font-style: italic;
+    color: var(--rose-gold);
+    font-size: 0.7em;
+    margin: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column !important;
+    }
+    
+    .timeline-content::before {
+        left: -45px !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}

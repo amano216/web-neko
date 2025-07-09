@@ -1,0 +1,441 @@
+/* Classic Elegant Theme - Sophisticated and timeless design */
+
+:root {
+    --primary-color: #2C3E50;  /* Dark Blue Gray */
+    --secondary-color: #95A5A6;  /* Silver */
+    --accent-color: #ECF0F1;  /* Cloud White */
+    --text-color: #34495E;
+    --background-color: #FDFEFE;
+    --border-color: #BDC3C7;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to bottom, #ECF0F1 0%, #FDFEFE 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 20%, var(--border-color) 50%, transparent 80%);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 80px 40px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 300;
+    color: var(--primary-color);
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.hero-title .and {
+    display: block;
+    font-size: 0.4em;
+    font-style: italic;
+    margin: 20px 0;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+}
+
+.wedding-date {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    letter-spacing: 3px;
+    margin: 30px 0;
+    font-weight: 300;
+}
+
+.hero-message {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Section Styling */
+.section {
+    padding: 120px 0;
+    position: relative;
+}
+
+.section:nth-child(even) {
+    background: var(--accent-color);
+}
+
+.section-title {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 80px;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: var(--secondary-color);
+}
+
+/* Greeting Section */
+.greeting-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.greeting-content p {
+    font-size: 1.1rem;
+    line-height: 2.5;
+    color: var(--text-color);
+    margin: 25px 0;
+    font-weight: 300;
+}
+
+.greeting-content p:first-child {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Profile Section */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-image {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    background: white;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.profile-details {
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.profile-details dt {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.profile-details dd {
+    margin: 10px 0 0 0;
+    color: var(--text-color);
+    font-size: 1.05rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-date {
+    flex: 0 0 150px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+}
+
+.timeline-content {
+    flex: 1;
+    padding: 40px;
+    margin: 0 50px;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    background: white;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -55px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -55px;
+}
+
+.timeline-content h3 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Q&A Section */
+.qa-grid {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.qa-item {
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.qa-item:last-child {
+    border-bottom: none;
+}
+
+.qa-question {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.qa-answers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+}
+
+.answer {
+    text-align: center;
+}
+
+.answer-label {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.answer p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Thanks Section */
+.thanks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.thanks-item {
+    text-align: center;
+    padding: 40px;
+}
+
+.thanks-item h3 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.thanks-item p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Message Section */
+.message-section {
+    background: var(--primary-color);
+    color: white;
+}
+
+.message-section .section-title {
+    color: white;
+}
+
+.message-section .section-title::after {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.message-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.message-content p {
+    font-size: 1.15rem;
+    line-height: 2.2;
+    margin: 25px 0;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.couple-names {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-top: 60px;
+    letter-spacing: 3px;
+}
+
+.couple-names .and {
+    font-style: italic;
+    font-size: 0.6em;
+    margin: 0 20px;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title .and {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column !important;
+    }
+    
+    .timeline-content::before {
+        left: -45px !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}

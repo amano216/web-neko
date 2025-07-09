@@ -1,0 +1,12 @@
+{
+  "name": "wedding-templates",
+  "version": "1.0.0",
+  "description": "結婚報告テンプレート集",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "deploy": "vercel"
+  },
+  "keywords": ["wedding", "template", "japanese"],
+  "author": "",
+  "license": "MIT"
+}
